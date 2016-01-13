@@ -3,7 +3,7 @@ Template.index.onRendered(function() {
     var map;
 
     $.ajax({
-        url: "https://maps.googleapis.com/",
+        url: esc.api.getMapsUrl(),
         dataType: 'script',
         cache: true,
         complete:     function() {
