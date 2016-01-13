@@ -1,0 +1,32 @@
+<template name="layout">
+  <body>
+
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <h2 class="app-title"><a href="/">ESCapist</a></h2>
+        </div>
+
+      </div>
+
+      <nav class="navbar">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav">
+            <li><a href="">One</a></li>
+            <li><a href="">Two</a></li>
+            <li><a href="">Three</a></li>
+          </ul>
+
+          <div class="form-group navbar-right">
+            <div class="toggle">
+              <label class="control-label"><input type="checkbox">Disable Maps</label>
+            </div>
+          </div>
+
+        </div>
+      </nav>
+    </div>
+    {{ > yield }}
+  </body>
+
+</template>

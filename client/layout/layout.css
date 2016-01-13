@@ -1,0 +1,16 @@
+
+
+.jumbotron {
+    background: black;
+    color: #EEE;
+    padding-bottom: 0;
+}
+
+.app-title a {
+    color: inherit;
+}
+
+.app-title a:hover {
+    text-decoration: none;
+}
+
