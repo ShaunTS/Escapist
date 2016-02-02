@@ -7,6 +7,21 @@ Template.adminNav.onRendered(function() {
     })
 })
 
+Template.adminNav.helpers({
+
+    getChecked: function() {
+
+        return _.chain(Meteor.appConfig.find({name: 'disable-google-api'}).fetch())
+            .first(1)
+            .map(function(setting) {
+
+                if(setting.value === true) return "checked"
+
+                else return ""
+            }).value().join("")
+    }
+})
+
 Template.adminNav.events({
 
     'click .disable-api': function(event, template) {
