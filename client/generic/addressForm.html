@@ -1,0 +1,55 @@
+<template name="addressForm">
+
+  <div class="form esc-addr-form">
+
+    <table class="table form-as-table">
+
+      <thead>
+        <tr>
+          <th colspan="3">Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="addr-street-row">
+          <td class="addr-td-1">Street Address</td>
+          <td class="addr-td-2"><input class="form-control" type="text"></td>
+          <td class="addr-td-3"></td>
+        </tr>
+
+        <tr class="addr-city-row">
+          <td class="addr-td-1">City</td>
+          <td class="addr-td-2"><input class="form-control" type="text"></td>
+          <td class="addr-td-3"></td>
+        </tr>
+
+        <tr class="addr-state-row">
+          <td class="addr-td-1">State</td>
+          <td class="addr-td-2">
+            <select>
+              <option> - </option>
+                {{ #each getStates }}
+                  <option data-state-id="{{ id }}" data-state-name="{{ name }}">{{ abbr }}</option>
+                {{ /each }}
+            </select>
+          </td>
+          <td class="addr-td-3"></td>
+        </tr>
+
+        <tr class="addr-zip-row">
+          <td class="addr-td-1">Zip Code</td>
+          <td class="addr-td-2"><input class="form-control" type="text"></td>
+          <td class="addr-td-3"></td>
+        </tr>
+
+        <tr class="addr-submit">
+
+          <td colspan="3" class="addr-td-btn"><button class="btn">Get Geometry</button></td>
+
+        </tr>
+      </tbody>
+    </table>
+
+
+
+  </div>
+</template>
