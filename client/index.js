@@ -1,29 +1,41 @@
 Template.index.onRendered(function() {
 
-    if(_.isUndefined(this.data.enableMaps))
-      throw Error('API settings UNDEFINED')
-
     let mapsEnabled = !_II.getBoolean(this, 'data.enableMaps.value')
 
-    if(mapsEnabled) {
-        $.ajax({
-            url: esc.api.getMapsUrl(),
-            dataType: 'script',
-            success: function(data, status, response) {
-                _II.println('success google', google)
+    let loc = {}
 
-                var map = new google.maps.Map(
-                    $('.esc-map')[0],
-                    {
-                        center: {lat: -34.397, lng: 150.644},
-                        zoom: 8
-                    }
-                );
+    loc.lat = $(this.find('.esc-map')).data('maps-lat')
+    loc.lng = $(this.find('.esc-map')).data('maps-lng')
 
-            },
-            error: function(response, status, error) {
-                _II.println('error', [response, status, error])
-            }
+    Session.set('maps-aaa', loc)
+})
+
+Template.index.helpers({
+
+    requestLoadMap: function() {
+        let loc = Session.get('maps-aaa')
+
+        if(!esc.containsLatLng(loc)) return
+
+        esc.api.forEach(function() {
+            $.ajax({
+                url: esc.api.getMapsUrl(),
+                dataType: 'script',
+                success: function(data, status, response) {
+
+                    var map = new google.maps.Map(
+                        $('.esc-map')[0],
+                        {
+                            center: loc,
+                            zoom: 8
+                        }
+                    );
+
+                },
+                error: function(response, status, error) {
+                    _II.println('error', [response, status, error])
+                }
+            })
         })
     }
 })
