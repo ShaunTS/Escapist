@@ -1,9 +1,29 @@
 
 <template name="index">
   <body>
+    <div class="esc-tmp-index">
+      <div class="map-holder">
+        <div class="esc-map" data-maps-lat="-34.397" data-maps-lng="150.644">
+          {{ requestLoadMap }}
+        </div>
+      </div>
 
-    <div class="map-holder">
-      <div class="esc-map"></div>
+      <div class="container">
+        <div class="panel esc-panel">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-6">
+                {{ > addressForm }}
+              </div>
+
+              <div class="col-xs-6">
+                {{ > basicGeoForm }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </body>
 
