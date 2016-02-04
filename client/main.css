@@ -4,3 +4,7 @@
     -webkit-box-shadow: 1px 1px 3px 4px #ccc;
     box-shadow:         1px 1px 3px 4px #ccc;
 }
+
+.form-as-table > tbody > tr > td {
+    vertical-align: middle;
+}

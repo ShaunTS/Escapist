@@ -1,7 +1,7 @@
 
 <template name="basicGeoForm">
 
-  <table class="table">
+  <table class="table form-as-table">
     <thead>
       <tr>
         <th>Position</th>
@@ -16,6 +16,12 @@
       <tr class="esc-input-lng">
         <td><h3>Lng</h3></td>
         <td><input class="form-control" type="text" value="{{ getLongitude }}"></td>
+      </tr>
+
+      <tr class="esc-input-geo">
+        <td colspan="2">
+          <code>{{ getGeo }}</code>
+        </td>
       </tr>
     </tbody>
   </table>
